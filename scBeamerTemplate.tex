@@ -1,0 +1,134 @@
+\documentclass[handout]{beamer}
+%[handout]
+\usetheme{Warsaw}													% the base theme
+%\usepackage[italian]{babel}										% italian language
+\usepackage[utf8]{inputenc}
+\usepackage[math]{iwona}										% a professional and nice font
+\usepackage[T1]{fontenc}
+\usepackage{siunitx}												% a useful package for SI units
+\usepackage{cancel}												% to add a cross on some formulas
+\usepackage{multicol}												% package to do multiple columns
+\usepackage{appendixnumberbeamer}					% to have correct appendix slides numbering	
+\graphicspath{ {img/} }											% to put all images in img folder
+
+% some maquillage work for colors
+\renewcommand{\CancelColor}{\color{myCol}}
+\definecolor{myCol}{RGB}{0,102,102}						% verde bosco
+%\definecolor{myCol}{RGB}{8,69,126}						% blu scuro
+\definecolor{White}{RGB}{255,255,255}
+\definecolor{Black}{RGB}{0,0,0}
+
+% some maquillage for structure
+\setbeamercolor{background canvas}{bg=White}
+\setbeamercolor{structure}{fg=myCol}
+\setbeamercolor{title}{bg=myCol}
+\setbeamercolor{title}{fg=White}
+
+% setting bullets for itemize context
+\setbeamertemplate{navigation symbols}{}
+\renewcommand\mathfamilydefault{\rmdefault}
+\setbeamertemplate{itemize items}{$\star$}
+
+% some maquillage for TOC
+\setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection}
+
+% headline and footline settings
+\setbeamertemplate{headline}{%
+\leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{palette quaternary}%
+    \insertsectionnavigationhorizontal{\paperwidth}{\hskip0pt plus1filll}{\hskip0pt plus1filll}
+    \end{beamercolorbox}%
+  }
+}
+
+\setbeamertemplate{footline}{\leavevmode%
+\begin{beamercolorbox}[wd=.33\paperwidth,left,ht=2.5ex,dp=1.5ex,rightskip=4pt
+  plus 1pt, leftskip=4pt]{subsection in head/foot}
+  \insertshortauthor\ \insertshortinstitute
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.34\paperwidth,center,ht=2.5ex,dp=1.5ex]{section in head/foot}
+  \usebeamercolor[fg]{section in foot/head}\insertshorttitle
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.33\paperwidth,ht=2.5ex,dp=1.5ex,leftskip=4pt plus 1pt,rightskip=4pt plus 1pt]{subsection in head/foot}
+  \hfill\insertframenumber/\inserttotalframenumber
+\end{beamercolorbox}%
+}
+
+%%%%%%%%%%%%% YOU CAN START YOUR PRESENTATION HERE %%%%%%%%%%%%%
+
+\title[scBeamerTemplate]{scBeamerTemplate}
+\subtitle[my personal Beamer Template]{a personal Beamer template created by Simone Capodicasa}
+\author[S. Capodicasa]{Simone Capodicasa\\[1ex]
+	\scriptsize{\texttt{capodica@studenti.ph.unito.it}}
+  	}
+%\titlegraphic{\includegraphics[width=25mm]{img/ph.png}}
+\institute[]{Università degli Studi di Torino}
+\date[1/1/1970]{ January 1st, 1970}
+%\logo{\includegraphics[width=10mm]{ph.png}}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+		\frametitle{\contentsname}
+		\tableofcontents
+\end{frame}
+
+\section{First section}
+
+\begin{frame}
+%	\frametitle{\contentsname}
+%	\tableofcontents[currentsection]
+	\begin{center}
+		\huge{\insertsection}
+	\end{center}
+\end{frame}
+
+\section{Second section}
+
+\begin{frame}
+	\frametitle{Two columns slide}
+	\framesubtitle{Slide's subtitle}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			%\includegraphics[height=30mm]{}
+			\begin{itemize}
+				\item First column
+				\item It's nice!
+			\end{itemize}
+		\end{column}
+		\pause
+		\begin{column}{0.5\textwidth}
+			\begin{block}{Second column}
+      			Using blocks
+  			\end{block}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\section{}
+
+\begin{frame}
+	\frametitle{\refname}
+   	\begin{thebibliography}{9}
+   		\bibitem{Capo} Simone Capodicasa
+   		\newblock I've nothing to say
+   		\newblock January 1st, 1970
+   \end{thebibliography}
+\end{frame}
+
+\appendix
+
+\begin{frame}
+	\frametitle{An appendix slide}
+	\framesubtitle{Useful to?}
+	\begin{center}
+		Have some backup slides!
+	\end{center}
+\end{frame}
+
+\end{document}
